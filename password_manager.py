@@ -5,7 +5,13 @@ from caesar import caesar_encrypt
 
 def encrypt_single_pass(filename: str) -> None:
     """TODO: Parte 1."""
-    pass
+    
+def encrypt_single_pass(filename):
+    with open(filename, 'r') as file:
+        password = file.read().strip()
+    encrypted_password = caesar_encrypt(password)
+    with open(filename, 'w') as file:
+        file.write(encrypted_password)
 
 
 def encrypt_passwords_in_file(filename: str) -> None:
