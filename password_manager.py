@@ -7,7 +7,7 @@ def encrypt_single_pass(filename: str) -> None:
     """TODO: Parte 1."""
     
     with open(filename, 'r') as file:
-        password = file.read().strip()
+        password = file.readline().strip()
     encrypted_password = caesar_encrypt(password)
     with open(filename, 'w') as file:
         file.write(encrypted_password)
@@ -18,7 +18,6 @@ def encrypt_passwords_in_file(filename: str) -> None:
     
     with open(filename, mode='r') as file:
         reader = csv.reader(file)
-        
         for row in reader:
             print(row)
 
