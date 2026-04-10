@@ -20,6 +20,8 @@ def encrypt_passwords_in_file(filename: str) -> None:
         lector = csv.reader(file)
         rows = []
         for row in lector:
+            if not row:   
+                continue
             if row[0] != "website":
                 row[2] = caesar_encrypt(row[2])
             rows.append(row)
