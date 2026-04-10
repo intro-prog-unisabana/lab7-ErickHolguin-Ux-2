@@ -17,17 +17,14 @@ def encrypt_passwords_in_file(filename: str) -> None:
     """TODO: Parte 2."""
 
     with open(filename, mode='r') as file:
-        reader = csv.reader(file)
+        lector = csv.reader(file)
         rows = []
-        for row in reader:
+        for row in lector:
             if row[0] != "website":
                 row[2] = caesar_encrypt(row[2])
             rows.append(row)
             print(row)
         return rows
-
-         
-         
 
 
 def change_password(filename: str, website: str, password: str) -> bool:
