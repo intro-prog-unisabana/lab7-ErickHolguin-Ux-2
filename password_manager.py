@@ -24,7 +24,11 @@ def encrypt_passwords_in_file(filename: str) -> None:
                 row[2] = caesar_encrypt(row[2])
             rows.append(row)
             print(row)
-        return rows
+    
+    with open(filename, mode='w', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerows(rows)
+    return row
 
 
 def change_password(filename: str, website: str, password: str) -> bool:
