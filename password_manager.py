@@ -30,7 +30,7 @@ def encrypt_passwords_in_file(filename: str) -> None:
     with open(filename, mode='w', newline='') as file:
         writer = csv.writer(file)
         writer.writerows(rows)
-    return row
+    return rows
 
 
 def change_password(filename: str, website: str, password: str) -> bool:
@@ -61,4 +61,18 @@ def change_password(filename: str, website: str, password: str) -> bool:
 
 def add_login(filename: str, website_name: str, username: str, password: str) -> None:
     """TODO: Parte 4."""
-    pass
+    
+    encrypted_password = caesar_encrypt(password)
+
+    with open(filename, mode='a', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow([website_name, username, encrypted_password])
+
+    with open(filename, mode='r') as file:
+        reader = csv.reader(file)
+        rows = [row for row in reader if row]
+
+    for row in rows:
+        print(row)
+
+    return rows
