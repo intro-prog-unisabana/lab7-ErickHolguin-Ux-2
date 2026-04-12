@@ -5,7 +5,7 @@ def main() -> None:
     """TODO: Parte 5 - programa principal interactivo."""
 
     filename = input("Enter the CSV file name:\n")
-    encrypt_all_passwords(filename)
+    encrypt_passwords_in_file(filename)
 
     while True:
         option = input("Options: (1) Change Password, (2) Add Password, (3) Quit:\n")
